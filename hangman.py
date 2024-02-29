@@ -17,17 +17,32 @@ print('------HANGMAN GAME------')
 chosen_word = valid_word(base_words)
 word_letters = set(chosen_word)
 already_letters = set()
-alpabhet = set(string.ascii_uppercase)
+alphabet = set(string.ascii_uppercase)
+lives = 10 
 
-while len(word_letters) > 0: #and lives > 0:
+while len(word_letters) > 0 and lives > 0:
     user_letter = input('Guess a letter: ').upper()
-    already_letters.add(user_letter)
+    print(chosen_word)
     print(already_letters) ####
-    lives = 10 
-    print(f'You have', lives, 'lives left and you have inserted these letters:', already_letters)
-    if user_letter in word_letters:
+    if user_letter in already_letters:
+         print('You have already  used that character! Please try again: ')
+         already_letters.add(user_letter)
+    elif user_letter in word_letters:
          print('Congratulations!') 
+         already_letters.add(user_letter)
+         word_letters.remove(user_letter)
+    elif user_letter not in already_letters:
+         lives = lives - 1 
+         print(f'Wrong character!! Now you have {lives} lives remaining ')
+         already_letters.add(user_letter)
+    
+    elif user_letter not in alphabet: #fazer posteriormente o programa entender que números não podem ser validados
+         print('This is not a valid character! please try again!!')
 
+if lives > 0:
+     print(f'You guessed the word!! It was: {chosen_word}!!')    
+elif lives == 0:
+    print(f'You have wasted all your lives :c, the word was: {chosen_word}')
     
 
 
