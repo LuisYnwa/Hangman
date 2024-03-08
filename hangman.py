@@ -24,15 +24,14 @@ print(gallows_visual[lives])
 
 while len(word_letters) > 0 and lives > 0:
     user_letter = input('Guess a letter: ').upper()
-    print(chosen_word)
-    print(already_letters) 
-    #RESOLVER ESSA PARTE DE MOSTRAR OS --
-    #word_list = [letter for letter in already_letters else '-' for #word_letters in chosen_word] 
-    #print('Current word: ', ' '.join(word_list))
+    print(f'Already used letters: {already_letters}')
+    #system to hide and show the correct letters
+    word_list = [letter if letter in already_letters else '-' for letter in chosen_word] 
+    print('Current word: ', ' '.join(word_list))
     if user_letter in already_letters:
          print('You have already  used that character! Please try again: ')
          print(gallows_visual[lives])
-         already_letters.add(user_letter)
+         #already_letters.add(user_letter)
     elif user_letter in word_letters:
          print('Congratulations! You guessed correctly the letter!')
          print(gallows_visual[lives]) 
@@ -47,7 +46,7 @@ while len(word_letters) > 0 and lives > 0:
          print(gallows_visual[lives])
          already_letters.add(user_letter)
     
-    elif user_letter not in alphabet: #fazer posteriormente o programa entender que números não podem ser validados
+    elif user_letter not in alphabet: #fazer posteriormente um sistema de validacao de caracteres para excluir numeros e letras enviadas em conjunto
          print('This is not a valid character! please try again!!')
 
 if lives > 0:
