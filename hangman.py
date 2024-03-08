@@ -50,11 +50,7 @@ if lives > 0:
      print(f'You guessed the word!! It`s: {chosen_word}!!')    
 elif lives == 0:
     print(f'You have wasted all your lives :c, the word was: {chosen_word}')
-    
 
-
-        #user_letter = input('Please insert a one valid letter!: ')
-#fazer sistema de validação sem números 
 
 
 
