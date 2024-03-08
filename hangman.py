@@ -11,9 +11,7 @@ def valid_word(words):
     return chosen_word.upper()
 
 print('------HANGMAN GAME------')
-#user_letter = input('Welcome to the hangman game! Please insert a letter to start: ')
-#while len(user_letter) > 1 or 0:
-       # user_letter = input('Please insert a one valid letter!: ')
+
 
 chosen_word = valid_word(base_words)
 word_letters = set(chosen_word)
@@ -31,7 +29,6 @@ while len(word_letters) > 0 and lives > 0:
     if user_letter in already_letters:
          print('You have already  used that character! Please try again: ')
          print(gallows_visual[lives])
-         #already_letters.add(user_letter)
     elif user_letter in word_letters:
          print('Congratulations! You guessed correctly the letter!')
          print(gallows_visual[lives]) 
